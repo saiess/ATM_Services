@@ -8,8 +8,8 @@ const Navbar: React.FC = () => {
           <img src="src/assets/t.svg" alt="" className="w-72 mb-8" />
         </div>
         <div className="bg-black/20 w-1/5 rounded-full flex">
-          <p className="p-2 w-1/2 text-center">FR</p>
-          <p className="bg-white p-2 w-1/2 rounded-full text-center">EN</p>
+          <p className="p-2 w-1/2 text-center">EN</p>
+          <p className="bg-white p-2 w-1/2 rounded-full text-center">FR</p>
         </div>
       </div>
     );

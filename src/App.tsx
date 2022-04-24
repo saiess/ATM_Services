@@ -15,8 +15,6 @@ import Booking from './pages/Booking';
 import MobileRecharge from './pages/MobileRecharge';
 
 function App() {
-  console.log(window.ipcRenderer);
-
   return (
     <Router>
       <Routes>
