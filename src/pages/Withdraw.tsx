@@ -14,7 +14,7 @@ const Withdraw: React.FC = () => {
             <h1 className="text-3xl lg:text-5xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-violet-200 font-extrabold">
               Sélectionner Le Solde
             </h1>
-            <Link to="/">
+            <Link to="/home">
               <GiReturnArrow className="text-3xl lg:text-5xl text-cyan-100 mr-10" />
             </Link>
           </div>

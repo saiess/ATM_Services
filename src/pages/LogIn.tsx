@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { GiReturnArrow } from 'react-icons/gi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const LogIn: React.FC = () => {
+
+  const [bin, setBin] = useState('');
+  const [password, setPassword] = useState('');
+  let navigate = useNavigate();
+  const infos = {
+    bin: bin,
+    password: password,
+  };
+
+  const auth = () => {
+    axios
+      .post('http://localhost:4000/api/client/', infos)
+      .then((res) => {
+        let token = res.data.token;
+        let sold = res.data.sold;
+
+        console.log(infos);
+        if (res.data.bin === bin && res.data.password === password) {
+          localStorage.setItem('token', token);
+          localStorage.setItem('solde', sold);
+
+          navigate('/home', { replace: true });
+        }
+      })
+      .catch((err) => console.warn(err));
+  };
   return (
     <div className="h-screen w-screen flex justify-center items-center bg-black/50">
       <div className="bg-gradient-to-b from-slate-300/50 via-slate-200/50 to-slate-100/50 h-4/5 lg:h-3/6 w-3/5 lg:w-1/4 rounded-3xl flex flex-col justify-center items-center">
@@ -22,13 +49,13 @@ const LogIn: React.FC = () => {
             </div>
             <input
               type="text"
-              value={'0765 3212 8456 9087'}
-              // placeholder='0765 3212 8456 9087'
-              disabled
-              className="w-4/5 bg-transparent text-2xl text-center"
+              onChange={(e) => {
+                setBin(e.target.value);
+              }}
+              className="w-4/5 bg-slate-100/5 text-2xl rounded-lg text-center"
             />
             <div className="w-full flex justify-between px-10 mb-6">
-              <span className='uppercase'>card holder</span>
+              <span className="uppercase">card holder</span>
               <span> 05/24 </span>
             </div>
           </div>
@@ -38,10 +65,16 @@ const LogIn: React.FC = () => {
               type="text"
               placeholder="code"
               className=" w-5/6 rounded-lg p-4"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
-            <Link to='/home' className="bg-slate-100 rounded-lg px-4 py-1 text-xl my-2 w-1/4 text-center">
+            <button
+              onClick={auth}
+              className="bg-slate-100 rounded-lg px-4 py-1 text-xl my-2 w-1/4 text-center"
+            >
               submit
-            </Link>
+            </button>
           </div>
         </div>
       </div>
