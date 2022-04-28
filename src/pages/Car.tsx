@@ -13,7 +13,7 @@ const Car: React.FC = () => {
             <h1 className="text-3xl lg:text-5xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-violet-200 font-extrabold">
               Payer la vignette de voiture
             </h1>
-            <Link to="/">
+            <Link to="/home">
               <GiReturnArrow className="text-3xl lg:text-5xl text-cyan-100 mr-10" />
             </Link>
           </div>
@@ -21,7 +21,7 @@ const Car: React.FC = () => {
             <div className="card w-96 bg-slate-300 shadow-xl rounded-lg">
               <figure className="px-10 pt-6">
                 <img
-                  src="https://www.mercedes-benz-mobility.com/bilder/mbm-relaunch/was-wir-machen/mercedes-pay_ratio_3x1_s.jpg"
+                  src="src/assets/pay.jpg"
                   alt="car"
                   className="rounded-xl"
                 />
@@ -38,13 +38,12 @@ const Car: React.FC = () => {
                     />
                   </div>
                   <div className="flex flex-col w-full items-center mb-3">
-                    <label htmlFor="">Année de paiement</label>
-                    <input
-                      type="date"
-                      name=""
-                      id=""
-                      className="w-4/5 py-3 rounded-md"
-                    />
+                    <label htmlFor="">Durée</label>
+                    <select name="" id="" className="w-4/5 py-3 rounded-md">
+                      <option value="2000">choix</option>
+                      <option value="2000">6 mois</option>
+                      <option value="4000">1 ans</option>
+                    </select>
                   </div>
                   <button className="btn text-gray-800">submit</button>
                 </div>

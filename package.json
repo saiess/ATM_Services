@@ -15,6 +15,7 @@
   },
   "productName": "evrt",
   "scripts": {
+    "start": "electromon .",
     "dev": "concurrently \"yarn dev:vite\" \" yarn dev:electron\"",
     "dev:vite": "vite",
     "dev:electron": "npm run build:electron && electron .",
@@ -27,6 +28,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "electromon": "^1.0.10",
     "electron-is-dev": "^2.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

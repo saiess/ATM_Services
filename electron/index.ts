@@ -28,7 +28,7 @@ function createWindow() {
     height: height,
     autoHideMenuBar: true,
     show: true,
-    frame:false,
+    frame:true,
     resizable: true,
     fullscreenable: true,
     webPreferences: {
